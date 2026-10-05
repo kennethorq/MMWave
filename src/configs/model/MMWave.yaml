@@ -1,0 +1,23 @@
+embedding_size: 64
+n_ui_layers: [3,4]
+n_layers: [1,2]
+learning_rate_scheduler: [0.96, 50]
+lambda_coeff: 0.9
+reg_weight: [1e-05, 0.0001]
+learning_rate: 0.001
+cl_loss: 0.01
+
+temperature: [0.1, 0.2]
+image_knn_k: [10,15,40]
+text_knn_k: [10,15,40]
+audio_knn_k: [15]
+dropout_rate : 0.1
+
+visual_modal_weights: 1
+text_modal_weights: 1
+audio_modal_weights: 1
+fused_modal_weights: 1
+wavelet_decom_level: 2
+
+
+hyper_parameters: ["n_ui_layers", "n_layers", "image_knn_k", "text_knn_k", "audio_knn_k", "temperature", "reg_weight"]

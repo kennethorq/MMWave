@@ -11,6 +11,7 @@ inter_file_name: 'clothing.inter'
 # name of features
 vision_feature_file: 'image_feat.npy'
 text_feature_file: 'text_feat.npy'
+audio_feature_file: None
 user_graph_dict_file: 'user_graph_dict.npy'
 
 

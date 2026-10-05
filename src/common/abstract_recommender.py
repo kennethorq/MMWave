@@ -86,18 +86,27 @@ class GeneralRecommender(AbstractRecommender):
         self.batch_size = config['train_batch_size']
         self.device = config['device']
 
-        # load encoded features here
-        self.v_feat, self.t_feat = None, None
+
+        self.v_feat, self.t_feat, self.a_feat = None, None, None
         if not config['end2end'] and config['is_multimodal_model']:
             dataset_path = os.path.abspath(config['data_path'] + config['dataset'])
-            # if file exist?
+            
+            # Define file paths for vision, text, and audio features
             v_feat_file_path = os.path.join(dataset_path, config['vision_feature_file'])
             t_feat_file_path = os.path.join(dataset_path, config['text_feature_file'])
+            a_feat_file_path = os.path.join(dataset_path, config['audio_feature_file'])
+            
+            # Load vision features
             if os.path.isfile(v_feat_file_path):
-                self.v_feat = torch.from_numpy(np.load(v_feat_file_path, allow_pickle=True)).type(torch.FloatTensor).to(
-                    self.device)
+                self.v_feat = torch.from_numpy(np.load(v_feat_file_path, allow_pickle=True)).type(torch.FloatTensor).to(self.device)
+            
+            # Load text features
             if os.path.isfile(t_feat_file_path):
-                self.t_feat = torch.from_numpy(np.load(t_feat_file_path, allow_pickle=True)).type(torch.FloatTensor).to(
-                    self.device)
-
-            assert self.v_feat is not None or self.t_feat is not None, 'Features all NONE'
+                self.t_feat = torch.from_numpy(np.load(t_feat_file_path, allow_pickle=True)).type(torch.FloatTensor).to(self.device)
+            
+            # Load audio features
+            if os.path.isfile(a_feat_file_path):
+                self.a_feat = torch.from_numpy(np.load(a_feat_file_path, allow_pickle=True)).type(torch.FloatTensor).to(self.device)
+            
+            # Ensure at least one feature is loaded
+            assert self.v_feat is not None or self.t_feat is not None or self.a_feat is not None, 'Features all NONE'
