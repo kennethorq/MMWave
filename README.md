@@ -32,7 +32,7 @@ Other parameters can be set either through the command line or by using the conf
 
 ## Performance Comparison
 <div align="center">
-    <img src="images/mmwave_results.png" width="750px" height="300px">
+    <img src="images/mmwave_results.png" width="750px">
 </div>
 
 
