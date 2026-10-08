@@ -37,9 +37,15 @@ Other parameters can be set either through the command line or by using the conf
 
 
 ## Citation
-If you find MMWave useful in your research, please consider citing our paper.
+If you find MMWave useful in your research, please consider citing our [paper](https://ieeexplore.ieee.org/document/11706724).
 ```
-
+@article{ong2026tackling,
+  title={Tackling the Modality Inhibitance Effect with Wavelet-based Modality Integration in Multi-modal Recommendation},
+  author={Ong, Rongqing Kenneth and Khong, Andy WH},
+  journal={IEEE Transactions on Knowledge and Data Engineering},
+  year={2026},
+  publisher={IEEE}
+}
 ```
 This code is made available solely for academic research purposes.
 
